@@ -6,7 +6,11 @@ import styles from './About.module.css';
 
 export default function About() {
   const [alertMsg, setAlertMsg] = useState('Clicked from About Us section');
+  const [playing, setPlaying] = useState(false);
 
+  const handlePlay = () => {
+    setPlaying(true);
+  };
   
   const handleLearnMoreClick = () => {
     setAlertMsg('Clicked from About Us section');
@@ -20,6 +24,10 @@ export default function About() {
       
         <ReactPlayer
           url="https://www.youtube.com/watch?v=oyGL591b_0Q" 
+         controls={true}
+         playing={playing}
+     
+  onClick={handlePlay}
          />
       </div>
       <div className={styles['text-container']}>
@@ -36,7 +44,7 @@ export default function About() {
           iusto ea quas praesentium aliquid, necessitatibus cumque nesciunt
           corporis.Lorem ipsum dolor sit amet. 
         </p>
-        <Button variant="contained" onClick={handleLearnMoreClick}  sx={{ backgroundColor: "red" }}>Learn More</Button>
+        <Button variant="contained" onClick={handleLearnMoreClick} sx={{ backgroundColor: "red" }} >Learn More</Button>
        
       </div>
       </div>
@@ -59,7 +67,10 @@ export default function About() {
       <div className={styles['video-container1']}>
         <ReactPlayer
           url="https://www.youtube.com/watch?v=gYfSXtK7PO4" 
-         
+          controls={true}
+          playing={playing}
+       
+   onClick={handlePlay}
         />
       </div>
       </div>
